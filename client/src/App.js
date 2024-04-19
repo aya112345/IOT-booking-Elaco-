@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+
+//importation des pages
+import Home from "./pages/home/Home";
+import List from "./pages/list/List";
+import Table from "./pages/table/Table";
+import Login from "./pages/login/Login";
+import QRCodeGenerator from "./pages/qrCode/QRCodeGenerator";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn  too uch 
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+     <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/Spaces" element={<List/>}/>
+      <Route path="/Spaces/:id" element={<Table/>}/>
+      <Route path="/Spaces/:id/QRCodeGenerator" element={<QRCodeGenerator/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/QRCodeGenerator" element={<QRCodeGenerator/>}/>
+
+     </Routes>
+  </BrowserRouter>
   );
 }
 
