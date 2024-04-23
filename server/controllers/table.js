@@ -1,7 +1,6 @@
 import Table from "../models/Tables.js";
 import Space from "../models/Space.js";
 import { createError } from "../utils/error.js";
-//ayy hotel=space +table =room
 export const createTable = async (req, res, next) => {
   const spaceId = req.params.spaceid;
   const newTable = new Table(req.body);

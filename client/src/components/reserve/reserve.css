@@ -52,7 +52,7 @@
     font-weight: 500;
   }
   
-  .rSelectRooms{
+  .rSelectTables{
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
@@ -60,7 +60,7 @@
     color: gray;
   }
   
-  .room{
+  .table{
     display: flex;
     flex-direction: column;
   }

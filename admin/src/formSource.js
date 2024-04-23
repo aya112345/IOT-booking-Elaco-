@@ -68,7 +68,7 @@ export const productInputs = [
     placeholder: "in stock",
   },
 ];
-export const hotelInputs = [
+export const tableInputs = [
   {
     id: "name",
     label: "Name",
@@ -103,7 +103,7 @@ export const hotelInputs = [
   //   id: "title",
   //   label: "Title",
   //   type: "text",
-  //   placeholder: "The best Hotel",
+  //   placeholder: "The best space",
   // },
   {
     id: "desc",
@@ -119,7 +119,7 @@ export const hotelInputs = [
   },
 ];
 
-export const roomInputs = [
+export const chairInputs = [
   {
     id: "title",
     label: "Title",

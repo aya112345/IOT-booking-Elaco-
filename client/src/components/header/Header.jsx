@@ -1,8 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChair ,faPerson,faCalendarDays,  faWifi,faMugHot ,faCookieBite,faCouch,
-  faCircleInfo,} from '@fortawesome/free-solid-svg-icons'
+import { faChair ,faPerson,faCalendarDays,  faWifi,faMugHot ,faCookieBite,faCouch,faCircleInfo,} from '@fortawesome/free-solid-svg-icons'
 import "./Header.css";
-
 import { DateRange } from "react-date-range";
 import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
@@ -10,10 +8,9 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
-
 import { AuthContext } from "../../context/AuthContext";
+
 const Header= ({ type }) => {
-  
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -26,13 +23,12 @@ const Header= ({ type }) => {
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
-    children: 0,
+    // children: 0,
     table: 1,
   });
 
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-
   const handleOption = (name, operation) => {
     setOptions((prev) => {
       return {
@@ -42,7 +38,6 @@ const Header= ({ type }) => {
     });
   };
   const { dispatch } = useContext(SearchContext);
-
   const handleSearch = () => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
 
@@ -56,7 +51,7 @@ const Header= ({ type }) => {
           <div className="headerListItem active">
           <FontAwesomeIcon icon={faChair} />
             
-            <span>Stays</span>
+            <span>Reservation</span>
           </div>
 
           <div className="headerListItem">
@@ -163,17 +158,13 @@ const Header= ({ type }) => {
                         <button className="optionCounterButton" onClick={() => handleOption("table", "i")}>  + </button>
                       </div>
                     </div>
-
-
                 </div>
                    )}
                  </div> 
               <div className="headerSearchItem">
               <button className="headerBtn" onClick={handleSearch}>search</button>
               </div> 
-
               </div>
-
               </>
         )}
         </div>

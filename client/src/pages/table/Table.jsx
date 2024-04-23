@@ -43,8 +43,8 @@ const Table = () => {
   }
 
   // const days = dayDifference(dates[0].endDate, dates[0].startDate);
-  const days = dates && dates[0] ? dayDifference(dates[0].endDate, dates[0].startDate) : 0;
-
+  const day =  dates && dates[0] ? dayDifference(dates[0].endDate, dates[0].startDate) : 0;
+const days = day + 1
   const handleOpen = (i) => {
     setSlideNumber(i);
     setOpen(true);
@@ -64,24 +64,7 @@ const Table = () => {
 
 
 
-  // const { data, loading, error } = useFetch(`/hotels/find/${id}`);
- 
 
-  // const { dates, options } = useContext(SearchContext);
-
-
-
-  // const handleOpen = (i) => {
-  //   setSlideNumber(i);
-  //   setOpen(true);
-  // };
-
-  // const handleMove = (direction) => {
-  //   let newSlideNumber;
-
-
-  //   setSlideNumber(newSlideNumber);
-  // };
 
   const handleClick = () => {
     if (user) {
@@ -97,7 +80,7 @@ const Table = () => {
       {loading ? (
         "loading"
       ) : (
-      <div className="hotelContainer">
+      <div className="spaceContainer">
         {open && (
           <div className="slider">
             <FontAwesomeIcon
@@ -123,47 +106,46 @@ const Table = () => {
             />
           </div>
         )}
-        <div className="hotelWrapper">
-          <button className="bookNow">Reserve or Book Now!</button>
-          <h1 className="hotelTitle">{data.name}</h1>
+        <div className="spaceWrapper">
+          {/* <button className="bookNow">Reserve or Book Now!</button>
+          <h1 className="spaceTitle">{data.name}</h1> */}
 
-          <div className="hotelAddress">
+          <div className="spaceAddress">
             <FontAwesomeIcon icon={faLocationDot} />
-            <span>{data.section}</span>
+            <span>Section :{data.section}</span>
            </div>
-          <span className="hotelDistance">
+          <span className="spaceDistance">
             Excellent location {data.section}
           </span>
-          <span className="hotelPriceHighlight">
-            Book a stay over ${data.cheapestPrice} at this property and get a free airport taxi
+          <span className="spacePriceHighlight">
+            Book a stay over {data.cheapestPrice}TND at this Table and get a free Wifi pass
           </span>
-          <div className="hotelImages">
+          <div className="spaceImages">
               {data.photos?.map((photo, i) => (
-                <div className="hotelImgWrapper" key={i}>
+                <div className="spaceImgWrapper" key={i}>
                   <img
                     onClick={() => handleOpen(i)}
                     src={photo}
-                    alt=""
-                    className="hotelImg"
+                    alt="table"
+                    className="spaceImg"
                   />
                 </div>
               ))}
             </div>
-          <div className="hotelDetails">
-            <div className="hotelDetailsTexts">
-              <h1 className="hotelTitle">{data.title}</h1>
-              <p className="hotelDesc">{data.desc}.
+          <div className="spaceDetails">
+            <div className="spaceDetailsTexts">
+              <h1 className="spaceTitle">{data.title}</h1>
+              <p className="spaceDesc">{data.desc}.
               </p>
             </div>
-            <div className="hotelDetailsPrice">
-            <h1>Perfect for a {days}-night stay!</h1>
+            <div className="spaceDetailsPrice">
+            <h1>Perfect for a {days}-night Concentration</h1>
               <span>
-                Located in the real heart of Krakow, this property has an
+                Located in the real heart of Borj Cedria, this property has an
                 excellent location score of 9.8!
               </span>
               <h2>
-              <b>${days * data.cheapestPrice * options.table}</b> ({days}{" "} nights)  
-              {/* options.table    9asdy beha room nbr*/}
+              <b>${days * data.cheapestPrice * options.table}</b> ({days}{" "} day(s))  
               </h2>
               <button onClick={handleClick}>Reserve or Book Now!</button>
             </div>
@@ -172,7 +154,6 @@ const Table = () => {
         <MailList />
         <Footer />
       </div>
-
 )}
 {openModal && <Reserve setOpen={setOpenModal} spaceId={id}/>}
 </div>

@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-
-//importation des pages
 import Home from "./pages/home/Home";
 import List from "./pages/list/List";
 import Table from "./pages/table/Table";
 import Login from "./pages/login/Login";
 import QRCodeGenerator from "./pages/qrCode/QRCodeGenerator";
+// import New from "./pages/new/New";
+
 
 function App() {
 
@@ -17,6 +17,7 @@ function App() {
       <Route path="/Spaces/:id" element={<Table/>}/>
       <Route path="/Spaces/:id/QRCodeGenerator" element={<QRCodeGenerator/>}/>
       <Route path="/login" element={<Login/>}/>
+      {/* <Route path="/New" element={<New/>}/> */}
       <Route path="/QRCodeGenerator" element={<QRCodeGenerator/>}/>
 
      </Routes>

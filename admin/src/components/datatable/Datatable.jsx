@@ -1,6 +1,6 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows, roomColumns } from "../../datatablesource";
+import { userColumns, userRows, chairColumns } from "../../datatablesource";
 // import { userColumns} from "../../datatablesource";
 
 import { Link, useLocation } from "react-router-dom";
@@ -16,7 +16,6 @@ import axios from "axios";
   const path = location.pathname.split("/")[1];
   const [list, setList] = useState([]);
   const { data, loading, error } = useFetch(`/${path}`);
-
 
   useEffect(() => {
     setList(data);

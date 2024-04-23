@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="footer">
       <div className="fLists">
         <ul className="fList">
-          <li className="fListItem">Open space</li>
+          <li className="fListItem">Space Sypes</li>
           <li className="fListItem">Private office</li>
           <li className="fListItem">Meeting room</li>
           <li className="fListItem">Royal Table</li>
@@ -13,35 +13,33 @@ const Footer = () => {
           <li className="fListItem">Royal View</li>
         </ul>
         <ul className="fList">
-          <li className="fListItem">Homes </li>
-          <li className="fListItem">Apartments </li>
-          <li className="fListItem">Resorts </li>
-          <li className="fListItem">Villas</li>
-          <li className="fListItem">Hostels</li>
-          <li className="fListItem">Guest houses</li>
+        <li className="fListItem">Table Types:</li>
+        <li className="fListItem">Table For 1 Per </li>
+          <li className="fListItem">Table For 2 Per </li>
+          <li className="fListItem">Table For 4 Per </li>
+          <li className="fListItem">Table For 6 Per</li>
+          <li className="fListItem">Private Office (1 Table)</li>
+          <li className="fListItem">Private Office (2 Tables)</li>
+          <li className="fListItem">Metting Room Table</li>
+
         </ul>
         <ul className="fList">
-          <li className="fListItem">Unique places to stay </li>
-          <li className="fListItem">Reviews</li>
-          <li className="fListItem">Unpacked: Travel articles </li>
-          <li className="fListItem">Travel communities </li>
-          <li className="fListItem">Seasonal and holiday deals </li>
+          <li className="fListItem">Prices</li>
+          <li className="fListItem">Informations</li>
+          <li className="fListItem">Help </li>
+          <li className="fListItem">location </li>
         </ul>
         <ul className="fList">
-          <li className="fListItem">Car rental </li>
-          <li className="fListItem">Flight Finder</li>
-          <li className="fListItem">Restaurant reservations </li>
-          <li className="fListItem">Travel Agents </li>
+          <li className="fListItem">Contact: </li>
+          <li className="fListItem">Facebook</li>
+          <li className="fListItem">Instagram</li>
+          <li className="fListItem">Whatsapp </li>
         </ul>
         <ul className="fList">
-          <li className="fListItem">Curtomer Service</li>
-          <li className="fListItem">Partner Help</li>
-          <li className="fListItem">Careers</li>
-          <li className="fListItem">Sustainability</li>
-          <li className="fListItem">Press center</li>
-          <li className="fListItem">Safety Resource Center</li>
-          <li className="fListItem">Investor relations</li>
-          <li className="fListItem">Terms & conditions</li>
+          <li className="fListItem">Privacy and cookies</li>
+          <li className="fListItem">Manage your reservations</li>
+          <li className="fListItem">About Reservation</li>
+          <li className="fListItem">The functioning of our site</li>
         </ul>
       </div>
       <div className="fText">Copyright © 2024 Elaco Coworking space.</div>

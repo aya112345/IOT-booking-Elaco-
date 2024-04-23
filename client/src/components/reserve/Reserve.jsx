@@ -7,12 +7,10 @@ import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 const Reserve = ({ setOpen, spaceId }) => {
   const [selectedTables, setSelectedTables] = useState([]);
   const { data, loading, error } = useFetch(`/spaces/table/${spaceId}`);
   const { dates } = useContext(SearchContext);
-
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -31,8 +29,8 @@ const Reserve = ({ setOpen, spaceId }) => {
 
   const alldates = getDatesInRange(dates[0].startDate, dates[0].endDate);
 
-  const isAvailable = (roomNumber) => {
-    const isFound = roomNumber.unavailableDates.some((date) =>
+  const isAvailable = (chairNumber) => {
+    const isFound = chairNumber.unavailableDates.some((date) =>
       alldates.includes(new Date(date).getTime())
     );
 
@@ -48,54 +46,60 @@ const Reserve = ({ setOpen, spaceId }) => {
         : selectedTables.filter((item) => item !== value)
     );
   };
-// console.log(selectedTables)
+
   const navigate = useNavigate();
 
   const handleClick = async () => {
     try {
       await Promise.all(
-        selectedTables.map((tableId) => {
-          const res = axios.put(`/tables/availability/${tableId}`, { dates: alldates });
+        selectedTables.map(async (tableId) => {
+          const res = await axios.put(`/tables/availability/${tableId}`, { dates: alldates });
           return res.data;
         })
       );
       setOpen(false);
       navigate("/");
-    } catch (err) {}
+    } catch (err) {
+      console.error(err);
+    }
   };
-  return (  <div className="reserve">
-  <div className="rContainer">
-    <FontAwesomeIcon
-      icon={faCircleXmark}
-      className="rClose"
-      onClick={() => setOpen(false)}
-    />
+
+  return (
+    <div className="reserve">
+      <div className="rContainer">
+        <FontAwesomeIcon
+          icon={faCircleXmark}
+          className="rClose"
+          onClick={() => setOpen(false)}
+        />
         <span>Select your place</span>
- 
-    {data.map((item) => (
-          <div className="rItem" key={item._id}>
-            <div className="rItemInfo">
-              <div className="rTitle">{item.title}</div>
-              <div className="rDesc">{item.desc}</div>
-              <div className="rMax">
-                Max people: <b>{item.maxPeople}</b>
+
+        {data.map((item) => (
+          item && ( // Add a null check for item
+            <div className="rItem" key={item._id}>
+              <div className="rItemInfo">
+                <div className="rTitle">{item.title}</div>
+                <div className="rDesc">{item.desc}</div>
+                <div className="rMax">
+                  Max people: <b>{item.maxPeople}</b>
+                </div>
+                <div className="rPrice">{item.price}</div>
               </div>
-              <div className="rPrice">{item.price}</div>
+              <div className="rSelectTables">
+                {item.tableNumbers.map((tableNumber) => (
+                  <div className="table" key={tableNumber._id}>
+                    <label>{tableNumber.number}</label>
+                    <input
+                      type="checkbox"
+                      value={tableNumber._id}
+                      onChange={handleSelect}
+                      disabled={!isAvailable(tableNumber)}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="rSelectRooms">
-              {item.tableNumbers.map((tableNumber) => (
-                <div className="room">
-                  <label>{tableNumber.number}</label>
-                  <input
-                    type="checkbox"
-                    value={tableNumber._id}
-                    onChange={handleSelect}
-                    disabled={!isAvailable(tableNumber)}
-                  />
- </div>
-              ))}
-            </div>
-          </div>
+          )
         ))}
         <button onClick={handleClick} className="rButton">
           Reserve Now!

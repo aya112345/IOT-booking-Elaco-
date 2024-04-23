@@ -1,16 +1,23 @@
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
-import StoreIcon from "@mui/icons-material/Store";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
+import ChairIcon from '@mui/icons-material/Chair';
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import AddLocationIcon from '@mui/icons-material/AddLocation';
+import WifiPasswordIcon from '@mui/icons-material/WifiPassword';
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
@@ -29,8 +36,10 @@ const Sidebar = () => {
         <ul>
           <p className="title">MAIN</p>
           <li>
+          <Link to="/" style={{ textDecoration: "none" }}>
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
+          </Link>
           </li>
           <p className="title">LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
@@ -41,41 +50,46 @@ const Sidebar = () => {
           </Link>
           <Link to="/spaces" style={{ textDecoration: "none" }}>
             <li>
-              <StoreIcon className="icon" />
-              <span>spaces</span>
+              <TableRestaurantIcon className="icon" />
+              <span>Space Tables</span>
             </li>
           </Link>
           <Link to="/tables" style={{ textDecoration: "none" }}>
             <li>
-              <CreditCardIcon className="icon" />
-              <span>Tables</span>
+              <ChairIcon className="icon" />
+              <span>Chairs</span>
             </li>
           </Link>
           <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
+            <AddLocationIcon className="icon" />
+            <span>Location</span>
           </li>
-          <p className="title">USEFUL</p>
+          <p className="title">Contact</p>
           <li>
-            <InsertChartIcon className="icon" />
-            <span>Stats</span>
-          </li>
-          <li>
-            <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
-          </li>
-          <p className="title">SERVICE</p>
-          <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
+            <FacebookIcon className="icon" />
+            <span>Facebook</span>
           </li>
           <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
+            <InstagramIcon className="icon" />
+            <span>Instagram</span>
+          </li>
+          <li>
+            <WhatsAppIcon className="icon" />
+            <span>WhatsApp</span>
+          </li>
+          <li>
+            <LocalPhoneIcon className="icon" />
+            <span>Phone</span>
+          </li>
+          <p className="title">services</p>
+        
+          <li>
+            <WifiPasswordIcon className="icon" />
+            <span>Wifi Password</span>
           </li>
           <li>
             <SettingsApplicationsIcon className="icon" />
-            <span>Settings</span>
+            <span>Settngs</span>
           </li>
           <p className="title">USER</p>
           <li>

@@ -25,7 +25,7 @@ export const updateSpace = async (req, res, next) => {
 export const deleteSpace = async (req, res, next) => {
     try {
         await Space.findByIdAndDelete(req.params.id);
-        res.status(200).json("Hotel has been deleted.");
+        res.status(200).json("space has been deleted.");
       } catch (err) {
     next(err);
 }

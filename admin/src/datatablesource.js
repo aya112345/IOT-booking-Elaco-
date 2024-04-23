@@ -36,7 +36,7 @@ export const userColumns = [
   },
 ];
 
-export const hotelColumns = [
+export const tableColumns = [
   { field: "_id", headerName: "ID", width: 100 },
   {
     field: "name",
@@ -65,7 +65,7 @@ export const hotelColumns = [
   // },
 ]; 
 
-export const roomColumns = [
+export const chairColumns = [
   { field: "_id", headerName: "ID", width: 70 },
   {
     field: "title",

@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   dates: [],
   options: {
     adult: undefined,
-    children: undefined,
+    // children: undefined,
     table: undefined,
   },
 };

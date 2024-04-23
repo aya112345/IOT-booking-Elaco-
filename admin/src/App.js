@@ -9,11 +9,13 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
+import { tableColumns, chairColumns, userColumns } from "./datatablesource";
 // import { userColumns } from "./datatablesource";
 
-import NewHotel from "./pages/newHotel/NewHotel";
-import NewRoom from "./pages/newRoom/NewRoom";
+import NewTable from "./pages/newTable/NewTable";
+import NewChair from "./pages/newChair/newChair";
+
+
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -73,7 +75,7 @@ function App() {
                 index
                 element={
                   <ProtectedRoute>
-                    <List columns={hotelColumns} />
+                    <List columns={tableColumns} />
                   </ProtectedRoute>
                 }
               />
@@ -89,7 +91,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <NewHotel  />
+                    <NewTable  />
                   </ProtectedRoute>
                 }
               />
@@ -99,7 +101,7 @@ function App() {
                 index
                 element={
                   <ProtectedRoute>
-                    <List columns={roomColumns} />
+                    <List columns={chairColumns} />
                   </ProtectedRoute>
                 }
               />
@@ -115,7 +117,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <NewRoom  />
+                    <NewChair  />
                   </ProtectedRoute>
                 }
               />
