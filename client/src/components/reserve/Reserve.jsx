@@ -58,7 +58,7 @@ const Reserve = ({ setOpen, spaceId }) => {
         })
       );
       setOpen(false);
-      navigate("/");
+      navigate("/ReservationKey");
     } catch (err) {
       console.error(err);
     }

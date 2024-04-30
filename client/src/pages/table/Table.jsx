@@ -147,7 +147,7 @@ const days = day + 1
               <h2>
               <b>${days * data.cheapestPrice * options.table}</b> ({days}{" "} day(s))  
               </h2>
-              <button onClick={handleClick}>Reserve or Book Now!</button>
+              <button onClick={handleClick}>See available plac</button>
             </div>
           </div>
         </div>

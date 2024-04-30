@@ -22,7 +22,7 @@ import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 
-const Sidebar = () => {
+const Sidebar = (userId) => {
   const { dispatch } = useContext(DarkModeContext);
   return (
     <div className="sidebar">
@@ -66,21 +66,30 @@ const Sidebar = () => {
           </li>
           <p className="title">Contact</p>
           <li>
-            <FacebookIcon className="icon" />
-            <span>Facebook</span>
-          </li>
-          <li>
-            <InstagramIcon className="icon" />
-            <span>Instagram</span>
-          </li>
-          <li>
-            <WhatsAppIcon className="icon" />
-            <span>WhatsApp</span>
-          </li>
-          <li>
-            <LocalPhoneIcon className="icon" />
-            <span>Phone</span>
-          </li>
+  <Link to="https://www.facebook.com/ElacoCoworkingBorjCedria" style={{ textDecoration: 'none' }}>
+    <FacebookIcon className="icon" />
+    <span>Facebook</span>
+  </Link>
+</li>
+<li>
+  <Link to="https://www.instagram.com/elaco_coworking_space?igsh=bTl2eTliNjI3NWd1" style={{ textDecoration: 'none' }}>
+    <InstagramIcon className="icon" />
+    <span>Instagram</span>
+  </Link>
+</li>
+<li>
+  <a href="https://api.whatsapp.com/send?phone=21620838552" style={{ textDecoration: 'none' }}>
+    <WhatsAppIcon className="icon" />
+    <span>WhatsApp</span>
+  </a>
+</li>
+<li>
+  <a href="tel:+21620838552" style={{ textDecoration: 'none' }}>
+    <LocalPhoneIcon className="icon" />
+    <span>Phone</span>
+  </a>
+</li>
+
           <p className="title">services</p>
         
           <li>
@@ -93,9 +102,11 @@ const Sidebar = () => {
           </li>
           <p className="title">USER</p>
           <li>
-            <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
-          </li>
+  <Link to={`http://localhost:3000/spaces/${userId}`} style={{ textDecoration: 'none' }}>
+    <AccountCircleOutlinedIcon className="icon" />
+    <span>Profile</span>
+  </Link>
+</li>
           <li>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
